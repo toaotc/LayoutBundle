@@ -1,0 +1,33 @@
+{% extends 'ToaLayoutBundle::base.html.twig' %}
+
+{% block title -%}
+    {{ parent() }} with Bootstrap3
+{%- endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {% stylesheets
+        'bundles/toalayout/components/bootstrap/dist/css/bootstrap.min.css'
+        'bundles/toalayout/components/bootstrap/dist/css/bootstrap-theme.min.css'
+        filter='cssrewrite'
+    -%}
+        <link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
+    {% endstylesheets %}
+
+{% endblock %}
+
+{% block body %}
+    <div class="container">{% block content '' %}</div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {% javascripts
+        'bundles/toalayout/components/jquery/jquery.min.js'
+        'bundles/toalayout/components/bootstrap/dist/js/bootstrap.min.js'
+    -%}
+        <script src="{{ asset_url }}" type="text/javascript"></script>
+    {% endjavascripts %}
+{% endblock %}

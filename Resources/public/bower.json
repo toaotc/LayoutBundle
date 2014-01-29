@@ -1,0 +1,10 @@
+{
+  "name": "ToaLayoutBunde",
+  "version": "0.0.1",
+  "dependencies": {
+    "jquery": "*",
+    "bootstrap": "~3",
+    "html5shiv": "*",
+    "respond": "*"
+  }
+}
