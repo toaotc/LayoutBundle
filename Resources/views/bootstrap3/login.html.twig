@@ -1,0 +1,11 @@
+{% extends 'ToaLayoutBundle:bootstrap3:layout.html.twig' %}
+
+{% form_theme form 'ToaLayoutBundle:bootstrap3:form.html.twig' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-sm-4 col-sm-offset-4" style="margin-top:15%;">
+            {{ form(form) }}
+        </div>
+    </div>
+{% endblock %}

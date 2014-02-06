@@ -1,0 +1,17 @@
+{% extends'ToaLayoutBundle::base.html.twig' %}
+
+{% block body %}
+    <blockquote>
+        <h3>
+            This is a default template.
+        </h3>
+        <p>
+            Why not override it in <code>/app/Resources/ToaLayoutBundle/views/Security/login.html.twig</code>
+            and extend it from <code>ToaLayoutBundle:bootstrap3:login.html.twig</code>?
+        </p>
+
+
+    {{ form(form) }}
+    </blockquote>
+
+{% endblock %}
