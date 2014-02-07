@@ -27,6 +27,7 @@ class SecurityController extends Controller
     public function loginAction(Request $request)
     {
         $session = $request->getSession();
+        $translator = $this->container->get('translator');
 
         $form = $this->container->get('form.factory')
             ->createNamedBuilder(
@@ -38,7 +39,8 @@ class SecurityController extends Controller
                 array(
                     'action' => $this->generateUrl('toa_layout_security_check'),
                     'method' => 'POST',
-                    'intention' => 'authenticate'
+                    'intention' => 'authenticate',
+                    'translation_domain' => 'toa_layout'
                 )
             )
             ->add('_username', 'text')
@@ -57,7 +59,10 @@ class SecurityController extends Controller
         }
 
         if ($error) {
-            $form->get('_username')->addError(new FormError($error->getMessage()));
+            $errorMessage = $translator->trans($error->getMessage(), array(), 'toa_layout');
+
+            $form->addError(new FormError($errorMessage));
+            $form->get('_username')->addError(new FormError(''));
             $form->get('_password')->addError(new FormError(''));
         }
 
