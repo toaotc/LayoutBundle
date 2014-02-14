@@ -45,7 +45,7 @@ class SecurityController extends Controller
             )
             ->add('_username', 'text')
             ->add('_password', 'password')
-            ->add('_remember_me', 'checkbox')
+            ->add('_remember_me', 'checkbox', array('required' => false))
             ->add('login', 'submit')
             ->getForm();
 
