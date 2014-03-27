@@ -1,8 +1,9 @@
 {
   "name": "ToaLayoutBunde",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "dependencies": {
     "bootstrap": "~3",
+    "bootstrap-datepicker": "*",
     "html5shiv": "*",
     "respond": "*"
   }
