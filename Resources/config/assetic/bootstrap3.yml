@@ -1,0 +1,14 @@
+assetic:
+    assets:
+        bootstrap3_css:
+            inputs:
+                - bundles/toalayout/components/bootstrap/dist/css/bootstrap.min.css
+                - bundles/toalayout/components/bootstrap/dist/css/bootstrap-theme.min.css
+                - bundles/toalayout/components/bootstrap-datepicker/css/datepicker3.css
+            filters:
+                - cssrewrite
+        bootstrap3_js:
+            inputs:
+                - bundles/toalayout/components/jquery/dist/jquery.min.js
+                - bundles/toalayout/components/bootstrap/dist/js/bootstrap.min.js
+                - bundles/toalayout/components/bootstrap-datepicker/js/bootstrap-datepicker.js

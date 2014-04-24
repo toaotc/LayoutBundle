@@ -8,10 +8,7 @@
     {{ parent() }}
 
     {% stylesheets
-        'bundles/toalayout/components/bootstrap/dist/css/bootstrap.min.css'
-        'bundles/toalayout/components/bootstrap/dist/css/bootstrap-theme.min.css'
-        'bundles/toalayout/components/bootstrap-datepicker/css/datepicker3.css'
-        filter='cssrewrite'
+        '@bootstrap3_css'
     -%}
         <link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
     {% endstylesheets %}
@@ -26,9 +23,7 @@
     {{ parent() }}
 
     {% javascripts
-        'bundles/toalayout/components/jquery/dist/jquery.min.js'
-        'bundles/toalayout/components/bootstrap/dist/js/bootstrap.min.js'
-        'bundles/toalayout/components/bootstrap-datepicker/js/bootstrap-datepicker.js'
+        '@bootstrap3_js'
     -%}
         <script src="{{ asset_url }}" type="text/javascript"></script>
     {% endjavascripts %}
