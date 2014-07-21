@@ -29,19 +29,50 @@
 {% spaceless %}
     <div class="checkbox">
         {{ form_widget(form) }}
-        {{ form_label(form) }}
         {{ form_errors(form) }}
     </div>
 {% endspaceless %}
 {% endblock %}
 
+{% block checkbox_widget %}
+{% spaceless %}
+    <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
+        {{ parent() }}
+        {{ form_label(form) }}
+    </label>
+{% endspaceless %}
+{% endblock %}
+
+{% block checkbox_label -%}
+    {% if label is not sameas(false) %}
+        {%- if not compound -%}
+            {% set label_attr = label_attr|merge({'for': id}) %}
+        {%- endif -%}
+        {%- if required -%}
+            {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' required')|trim}) %}
+        {%- endif -%}
+        {%- if label is empty -%}
+            {% set label = name|humanize %}
+        {%- endif -%}
+        {{ label|trans({}, translation_domain) }}
+    {%- endif %}
+{%- endblock %}
+
 {% block radio_row %}
 {% spaceless %}
     <div class="radio">
         {{ form_widget(form) }}
-        {{ form_label(form) }}
         {{ form_errors(form) }}
     </div>
+{% endspaceless %}
+{% endblock %}
+
+{% block radio_widget %}
+{% spaceless %}
+    <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
+        {{ parent() }}
+        {{ form_label(form) }}
+    </label>
 {% endspaceless %}
 {% endblock %}
 
@@ -63,10 +94,8 @@
 {% spaceless %}
     <div {{ block('widget_container_attributes') }}>
     {% for child in form %}
-        <label class="{{ multiple ? 'checkbox-inline' : 'radio-inline' }}">
-            {{ form_widget(child) }}
-            {{ child.vars.label|default(child.vars.name|humanize) }}
-        </label>
+        {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ (multiple ? ' checkbox-inline' : ' radio-inline'))|trim}) %}
+        {{ form_widget(child, {'label_attr' : label_attr}) }}
     {% endfor %}
     </div>
 {% endspaceless %}
