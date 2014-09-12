@@ -5,8 +5,6 @@ assetic:
                 - bundles/toalayout/components/bootstrap/dist/css/bootstrap.min.css
                 - bundles/toalayout/components/bootstrap/dist/css/bootstrap-theme.min.css
                 - bundles/toalayout/components/bootstrap-datepicker/css/datepicker3.css
-            filters:
-                - cssrewrite
         bootstrap3_js:
             inputs:
                 - bundles/toalayout/components/jquery/dist/jquery.min.js
