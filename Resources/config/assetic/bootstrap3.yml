@@ -4,9 +4,9 @@ assetic:
             inputs:
                 - bundles/toalayout/components/bootstrap/dist/css/bootstrap.min.css
                 - bundles/toalayout/components/bootstrap/dist/css/bootstrap-theme.min.css
-                - bundles/toalayout/components/bootstrap-datepicker/css/datepicker3.css
+                - bundles/toalayout/components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css
         bootstrap3_js:
             inputs:
                 - bundles/toalayout/components/jquery/dist/jquery.min.js
                 - bundles/toalayout/components/bootstrap/dist/js/bootstrap.min.js
-                - bundles/toalayout/components/bootstrap-datepicker/js/bootstrap-datepicker.js
+                - bundles/toalayout/components/bootstrap-datepicker/dist/js/bootstrap-datepicker.js
